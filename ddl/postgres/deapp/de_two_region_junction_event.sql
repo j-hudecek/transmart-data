@@ -1,7 +1,7 @@
 --
--- Name: de_two_region_junction_event_seq; Type: SEQUENCE; Schema: deapp; Owner: -
+-- Name: de_two_rgn_junction_event_seq; Type: SEQUENCE; Schema: deapp; Owner: -
 --
-CREATE SEQUENCE de_two_region_junction_event_seq
+CREATE SEQUENCE de_two_rgn_junction_event_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -12,9 +12,9 @@ CREATE SEQUENCE de_two_region_junction_event_seq
 -- Name: de_two_region_junction_event; Type: TABLE; Schema: deapp; Owner: -
 --
 CREATE TABLE de_two_region_junction_event (
-    two_region_junction_event_id bigint DEFAULT nextval('de_two_region_junction_event_seq'::regclass) NOT NULL,
-    junction_id integer,
-    event_id integer,
+    two_region_junction_event_id bigint DEFAULT nextval('de_two_rgn_junction_event_seq'::regclass) NOT NULL,
+    junction_id bigint,
+    event_id bigint,
     reads_span integer,
     reads_junction integer,
     pairs_span integer,

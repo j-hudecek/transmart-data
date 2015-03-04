@@ -23,6 +23,21 @@ def samlEnabled       = false
 def gwavaEnabled      = false
 def transmartURL      = "http://localhost:${System.getProperty('server.port', '8080')}/transmart/"
 
+//Disabling/Enabling UI tabs
+ui {
+    tabs {
+        //Search was not part of 1.2. It's not working properly. You need to set `show` to `true` to see it on UI
+        search.show = false
+        
+        browse.hide = false
+        //Note: analyze tab is always shown
+        sampleExplorer.hide = false
+        geneSignature.hide = false
+        gwas.hide = false
+        uploadData.hide = false
+    }
+}
+
 // I001 – Insertion point 'post-WAR-variables'
 
 /* Other things you may want to change:
@@ -343,14 +358,6 @@ grails { plugin { springsecurity {
     password.algorithm = 'bcrypt'
     // Number of bcrypt rounds
     password.bcrypt.logrounds = 14
-
-    /* {{{ Spring security – error messages */
-    errors.login.expired         = 'Your account has expired'
-    errors.login.passwordExpired = 'Your password has expired'
-    errors.login.disabled        = 'Your login has been disabled'
-    errors.login.locked          = 'Your account has been locked'
-    errors.login.fail            = 'Login has failed; check the provided credentials'
-    /* }}} */
 
     providerNames = [
         'daoAuthenticationProvider',
